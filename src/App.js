@@ -32,6 +32,7 @@ class App extends Component {
           currentScore={this.state.currentScore}
           topScore={this.state.topScore}
           correctGuess={this.state.correctAnswer}
+          guessComplete={this.guessComplete}
           gameOver={this.state.gameOver}
           message={this.state.message}
          />
@@ -84,6 +85,10 @@ class App extends Component {
         });
     }
     this.shuffle();
+  }
+
+  guessComplete = () => {
+    this.setState({correctAnswer: false});
   }
 
   resetGame = () => {

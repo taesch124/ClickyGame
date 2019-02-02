@@ -22,9 +22,19 @@ nav .brand-logo {
 }
 
 .wrong-guess {
-    color: red;
+    animation: red-text .5s 1;
+}
+
+@keyframes green-text {
+0% { color: green; }
+100% { color: white; }
 }
 
 .right-guess {
-    color: green;
+    animation: green-text .5s 1;
 }
+
+@keyframes red-text {
+    0% { color: red; }
+    100% { color: white; }
+    }
