@@ -1,10 +1,50 @@
 [
     {
         "id": 1,
-        "image": "/assets/images/judge-morty.png"
+        "image": "/assets/images/arthas.jpg"
     },
     {
         "id":2,
-        "image": "/assets/images/rick.jpg"
+        "image": "/assets/images/illidan.jpg"
+    },
+    {
+        "id":3,
+        "image": "/assets/images/jaina.png"
+    },
+    {
+        "id":4,
+        "image": "/assets/images/sylvanas.jpg"
+    },
+    {
+        "id":5,
+        "image": "/assets/images/thrall.png"
+    },
+    {
+        "id":6,
+        "image": "/assets/images/guldan.png"
+    },
+    {
+        "id":7,
+        "image": "/assets/images/maiev.jpg"
+    },
+    {
+        "id":8,
+        "image": "/assets/images/malfurion.jpg"
+    },
+    {
+        "id":9,
+        "image": "/assets/images/medivh.jpg"
+    },
+    {
+        "id":10,
+        "image": "/assets/images/cairne.jpg"
+    },
+    {
+        "id":11,
+        "image": "/assets/images/grom.jpg"
+    },
+    {
+        "id":12,
+        "image": "/assets/images/voljin.jpeg"
     }
 ]

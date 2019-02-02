@@ -13,9 +13,15 @@ class App extends Component {
     this.state = {
       currentScore: 0,
       topScore: 0,
+      gameOver: false,
       message: 'Click on a character to start',
+      characters: characters,
       guesses: []
     }
+  }
+
+  componentWillMount() {
+    this.shuffle();
   }
 
   render() {
@@ -29,16 +35,29 @@ class App extends Component {
         <Header />
         <div className="container">
           <div className="flex-row">
-            {characters.map(e => <CharacterCard 
+            {this.state.characters.map(e => <CharacterCard 
               key={e.id}
               id={e.id}
               image={e.image}
               userGuessed={this.userGuessed}
+              gameOver={this.state.gameOver}
               />) }
           </div>
         </div>
       </div>
     );
+  }
+
+  shuffle = () => {
+    let shuffle = [];
+    let characters = this.state.characters.slice();
+    
+    while(characters.length > 0) {
+      let randomIndex = Math.floor(Math.random() * characters.length);
+      shuffle.push(characters.splice(randomIndex, 1)[0]);
+    }
+    
+    this.setState({characters: shuffle});
   }
 
   userGuessed = (id) => {
@@ -47,10 +66,14 @@ class App extends Component {
       console.log('Already guessed');
       this.setState({
         currentScore: 0,
+        gameOver: true,
         topScore: this.state.currentScore > this.state.topScore ? this.state.currentScore : this.state.topScore,
         message: 'You already picked this character',
         guesses: []
       })
+      setTimeout(() => {
+        this.setState({gameOver: false});
+      }, 500);
     } else {
       let newGuesses = this.state.guesses;
       newGuesses.push(id);
@@ -60,7 +83,9 @@ class App extends Component {
           guesses: newGuesses
         });
     }
+    this.shuffle();
   }
+
 }
 
 export default App;

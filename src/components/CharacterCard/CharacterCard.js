@@ -5,9 +5,9 @@ class CharacterCard extends Component {
 
     render() {
         return (
-            <div className="card">
+            <div className={`card ${this.props.gameOver ? "shake" : ""}`}>
                 <img 
-                    className="character-portrait" 
+                    className="character-portrait"
                     alt="Character portrait" 
                     src={this.props.image} 
                     id={this.props.id}
