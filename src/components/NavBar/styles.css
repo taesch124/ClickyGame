@@ -1,5 +1,5 @@
 nav {
-    box-shadow: 0 .75rem rgb(94, 93, 93);
+    box-shadow: 0 .25rem rgb(94, 93, 93, .3);
 }
 
 nav .brand-logo {
@@ -19,4 +19,12 @@ nav .brand-logo {
 .score-text {
     margin-right: 1rem;
     font-size: 1.4rem;
+}
+
+.wrong-guess {
+    color: red;
+}
+
+.right-guess {
+    color: green;
 }

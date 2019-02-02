@@ -13,6 +13,7 @@ class App extends Component {
     this.state = {
       currentScore: 0,
       topScore: 0,
+      correctAnswer: false,
       gameOver: false,
       message: 'Click on a character to start',
       characters: characters,
@@ -30,6 +31,8 @@ class App extends Component {
         <NavBar 
           currentScore={this.state.currentScore}
           topScore={this.state.topScore}
+          correctGuess={this.state.correctAnswer}
+          gameOver={this.state.gameOver}
           message={this.state.message}
          />
         <Header />
@@ -41,6 +44,7 @@ class App extends Component {
               image={e.image}
               userGuessed={this.userGuessed}
               gameOver={this.state.gameOver}
+              resetGame={this.resetGame}
               />) }
           </div>
         </div>
@@ -65,25 +69,31 @@ class App extends Component {
     if(this.state.guesses.includes(id)) {
       console.log('Already guessed');
       this.setState({
-        currentScore: 0,
         gameOver: true,
-        topScore: this.state.currentScore > this.state.topScore ? this.state.currentScore : this.state.topScore,
+        correctAnswer: false,
         message: 'You already picked this character',
-        guesses: []
-      })
-      setTimeout(() => {
-        this.setState({gameOver: false});
-      }, 500);
+      });
     } else {
       let newGuesses = this.state.guesses;
       newGuesses.push(id);
       this.setState({
           currentScore: this.state.currentScore + 1,
+          correctAnswer: true,
           message: 'You guessed correctly!',
           guesses: newGuesses
         });
     }
     this.shuffle();
+  }
+
+  resetGame = () => {
+    this.setState({
+      currentScore: 0,
+      topScore: this.state.currentScore > this.state.topScore ? this.state.currentScore : this.state.topScore,
+      gameOver: false,
+      message: 'Click on a character to start',
+      guesses: []
+    });
   }
 
 }
